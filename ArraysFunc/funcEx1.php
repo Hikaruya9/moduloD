@@ -6,5 +6,5 @@ $song = [
     'Título' => 'Second Chance'
 ];
 
-$keys = array_keys($song);
+$keys = array_keys($song);  # Insert keys from array $song to $keys
 var_dump($keys);
