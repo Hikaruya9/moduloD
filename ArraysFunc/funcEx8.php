@@ -6,5 +6,5 @@ function doubleNumber($n){
 }
 
 $numbersA = [2, 7, 10];
-$numbersB = array_map('doubleNumber', $numbersA);   # Applies function callback to each value from the array    # Double each number on this case
+$numbersB = array_map('doubleNumber', $numbersA);   # Applies function callback to each value from the array    # Double each number in this case
 print_r($numbersB);
