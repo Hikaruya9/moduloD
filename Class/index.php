@@ -2,10 +2,10 @@
 
 include 'User.php';
 
-$u = new User();
 $cont = 1;
 $users = [];
-$selection = 10;
+$selection = 100;
+$u = new User();
 
 while ($selection != 0) {
 
@@ -33,7 +33,7 @@ while ($selection != 0) {
             $e = readLine();
             echo "Senha do usuário: ";
             $p = readLine();
-            $u->insert($n, $e, $p, $users, $cont);
+            $users = $u->insert($n, $e, $p, $users, $cont);
             if ($cont == count($users)) {
                 $cont++;
             }
@@ -48,13 +48,13 @@ while ($selection != 0) {
             $email = readLine();
             echo "Senha do usuário: ";
             $password = readLine();
-            $u->update($id, $name, $email, $password, $users);
+            $users = $u->update($id, $name, $email, $password, $users);
             break;
 
         case 3:
             echo "Digite o id do usuário para exlusão: ";
             $id = readLine();
-            $u->delete($id, $users);
+            $users = $u->delete($id, $users);
             break;
 
         case 4:
@@ -68,6 +68,6 @@ while ($selection != 0) {
             break;
 
         default:
-            echo "Valor inválido!";
+            echo "Opção inválida!\n";
     }
 }
