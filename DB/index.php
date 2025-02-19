@@ -1,11 +1,9 @@
 <?php
 
-include 'User.php';
+include 'UserDAO.php';
 
-$cont = 1;
-$users = [];
 $selection = 100;
-$u = new User();
+$u = new UserDAO();
 
 while ($selection != 0) {
 
@@ -33,38 +31,29 @@ while ($selection != 0) {
             $e = readLine();
             echo "Senha do usuário: ";
             $p = readLine();
-            $users = $u->insert($n, $e, $p, $users, $cont);
-            if ($cont == count($users)) {
-                $cont++;
-            }
-
+            $users = $u->insert($n, $e, $p);
             break;
+
         case 2:
-            echo "ID do usuário a ser alterado: ";
-            $id = readLine();
-            echo "Nome do usuário: ";
-            $name = readLine();
             echo "Email do usuário: ";
             $email = readLine();
-            echo "Senha do usuário: ";
-            $password = readLine();
-            $users = $u->update($id, $name, $email, $password, $users);
+            $users = $u->update($email);
             break;
 
         case 3:
-            echo "Digite o id do usuário para exlusão: ";
-            $id = readLine();
-            $users = $u->delete($id, $users);
+            echo "Digite o email do usuário para exlusão: ";
+            $email = readLine();
+            $users = $u->delete($email);
             break;
 
         case 4:
-            $u->showAll($users);
+            $u->showAll();
             break;
 
         case 5:
             echo "Digite o email que deseja buscar: ";
             $email = readLine();
-            $u->searchByEmail($email, $users);
+            $u->searchByEmail($email);
             break;
 
         default:
