@@ -3,11 +3,15 @@
 class UserDAO
 {
 
+    public function db(){
+        return $db = new PDO('sqlite:database.sqlite');
+    }
+
     public function insert($name, $email, $password)
     {
         if (!$this->emailExists($email)) {
-            $db = new PDO('sqlite:database.sqlite');
-            $query = $db->prepare("INSERT INTO users(name,email,password) VALUES (:name,:email,:password)");
+            
+            $query = $this->db()->prepare("INSERT INTO users(name,email,password) VALUES (:name,:email,:password)");
             $query->execute(['name' => $name, 'email' => $email, 'password' => $password]);
             echo "Usuário cadastrado com sucesso!\n";
         } else {
@@ -18,7 +22,6 @@ class UserDAO
     public function update($email)
     {
         if ($this->emailExists($email)) {
-            $db = new PDO('sqlite:database.sqlite');
             echo "Digite o dado que deseja alterar no usuário (1-Nome, 2-Email, 3-Senha):\n";
             $res = readLine();
 
@@ -26,21 +29,21 @@ class UserDAO
                 case 1:
                     echo "Digite o novo nome: ";
                     $n = readLine();
-                    $query = $db->prepare("UPDATE users SET name = :name WHERE email = :email");
+                    $query = $this->db()->prepare("UPDATE users SET name = :name WHERE email = :email");
                     $query->execute(['name' => $n, 'email' => $email]);
                     echo "Nome de usuário atualizado com sucesso!\n";
                     break;
                 case 2:
                     echo "Digite o novo email: ";
                     $e = readLine();
-                    $query = $db->prepare("UPDATE users SET email = :e WHERE email = :email");
+                    $query = $this->db()->prepare("UPDATE users SET email = :e WHERE email = :email");
                     $query->execute(['e' => $e, 'email' => $email]);
                     echo "Email de usuário atualizado com sucesso!\n";
                     break;
                 case 3:
                     echo "Digite a nova senha: ";
                     $p = readLine();
-                    $query = $db->prepare("UPDATE users SET password = :password WHERE email = :email");
+                    $query = $this->db()->prepare("UPDATE users SET password = :password WHERE email = :email");
                     $query->execute(['password' => $p, 'email' => $email]);
                     echo "Senha de usuário atualizado com sucesso!\n";
                     break;
@@ -55,8 +58,7 @@ class UserDAO
     public function delete($email)
     {
         if ($this->emailExists($email)) {
-            $db = new PDO('sqlite:database.sqlite');
-            $query = $db->prepare("DELETE FROM users WHERE email = :email");
+            $query = $this->db()->prepare("DELETE FROM users WHERE email = :email");
             $query->execute(['email' => $email]);
             echo "Usuário excluído com sucesso!\n";
         } else {
@@ -66,9 +68,7 @@ class UserDAO
 
     public function showAll()
     {
-        $db = new PDO('sqlite:database.sqlite');
-
-        $query = $db->query("SELECT id,name,email,password FROM users");
+        $query = $this->db()->query("SELECT id,name,email,password FROM users");
         $users = $query->fetchAll();
 
         foreach ($users as $u) {
@@ -84,9 +84,7 @@ class UserDAO
     public function searchByEmail($email)
     {
         if ($this->emailExists($email)) {
-            $db = new PDO('sqlite:database.sqlite');
-
-            $query = $db->prepare("SELECT id,name,email,password FROM users WHERE email = :email");
+            $query = $this->db()->prepare("SELECT id,name,email,password FROM users WHERE email = :email");
             $query->execute(['email' => $email]);
             $user = $query->fetch();
 
@@ -104,9 +102,7 @@ class UserDAO
 
     public function emailExists($email)
     {
-        $db = new PDO('sqlite:database.sqlite');
-
-        $query = $db->prepare("SELECT * FROM users WHERE email = :email");
+        $query = $this->db()->prepare("SELECT * FROM users WHERE email = :email");
         $query->execute(['email' => $email]);
         $user = $query->fetch();
 
