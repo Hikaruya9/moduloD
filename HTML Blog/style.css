@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root{
+    --colorBG: rgb(19, 19, 19);
+    --colorTitles: rgb(150, 150, 150);
+    --font1: "Atkinson Hyperlegible Next", serif;
+}
+
+body{
+    background-color: var(--colorBG);
+}
+
+h1, h2, h3{
+    color: var(--colorTitles);
+    font-family: var(--font1);
+    text-align: center;
+}
+
+p{
+    color: rgb(245, 245, 245);
+    font-family: var(--font1);
+    text-align: left;
+    font-size: 18px;
+    margin: 2% 10% 2% 10%;
+}
+
+#menu_list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#menu_list li{
+    float: left;
+}
+
+#menu_list li a{
+    display: block;
+    font-family: var(--font1);
+    color: rgb(214, 209, 209);
+    font-size: 26px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#menu_list li a:hover{
+    background-color: rgb(116, 111, 111);
+}
+
+hr{
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.subtitle{
+    font-size: 28px;
+    text-align: center;
+}
+
+.movie_title{
+    font-size: 40px;
+}
+
+.movie_image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 375px;
+    border-color: var(--colorTitles);
+}
