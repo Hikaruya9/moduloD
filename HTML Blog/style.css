@@ -1,26 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
 
 :root{
-    --colorMenu: rgb(214, 209, 209);
-    --colorBG: rgb(19, 19, 19);
-    --colorTitles: rgb(150, 150, 150);
-    --colorImages: rgb(40, 40, 40);
-    --colorP: rgb(245, 245, 245);
+    --color-menu: rgb(214, 209, 209);
+    --color-bg: rgb(19, 19, 19);
+    --color-titles: #acacac;
+    --color-images: rgb(40, 40, 40);
+    --color-p: #f1f1f1;
     --font1: "Atkinson Hyperlegible Next", serif;
 }
 
 body{
-    background-color: var(--colorBG);
+    padding: 0;
+    margin: 0;
+    background-color: var(--color-bg);
+}
+
+#header{
+    display: flex;
+    /* background-color: rgb(50, 50, 50); */
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.name-site{
+    color: var(--color-p);
+}
+
+#menu-list{
+    display: flex;
+    gap: 20px;
+}
+
+#menu-list li{
+    list-style-type: none;
+}
+
+#menu-list li a{
+    font-family: var(--font1);
+    color: var(--color-menu);
+    font-size: 20px;
+    padding: 12px 12px;
+    text-decoration: none;
+}
+
+#menu-list li a:hover{
+    background-color: rgb(116, 111, 111);
+}
+
+.item{
+    display: flex;
+    align-items: end;
 }
 
 h1, h2, h3{
-    color: var(--colorTitles);
+    color: var(--color-titles);
     font-family: var(--font1);
     text-align: center;
 }
 
 p{
-    color: var(--colorP);
+    color: var(--color-p);
     font-family: var(--font1);
     text-align: left;
     font-size: 18px;
@@ -31,33 +71,19 @@ article p, #about p{
     margin: 2% 10% 2% 10%;
 }
 
-#contact p{
-    margin: 1% 10% 0% 10%;
+#contact{
+    background-color: var(--color-images);
+    padding: 10px 0 10px 0;
 }
 
-#menu_list{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+#contact div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-#menu_list li{
-    float: left;
-}
-
-#menu_list li a{
-    display: block;
-    font-family: var(--font1);
-    color: var(--colorMenu);
-    font-size: 26px;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-#menu_list li a:hover{
-    background-color: rgb(116, 111, 111);
+#about h3, #contact h3{
+    font-size: 20px;
 }
 
 hr{
@@ -66,22 +92,30 @@ hr{
 }
 
 .subtitle{
-    font-size: 28px;
+    font-size: 30px;
     text-align: center;
 }
 
-.movie_title{
+.movie-info{
+    display: flex;
+    justify-content: center;
+}
+
+.synopsis{
+    margin: 1% 30% 2% 2%;
+}
+
+.movie-title{
     font-size: 40px;
 }
 
-.movie_image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.movie-image{
+    display: flex;
+    margin-left: 500px;
     width: 250px;
     height: 375px;
     border-radius: 3%;
     border-style: solid;
     border-width: 2px;
-    border-color: var(--colorImages);
+    border-color: var(--color-images);
 }
