@@ -2,10 +2,10 @@
 
 :root{
     --color-menu: rgb(214, 209, 209);
-    --color-bg: rgb(19, 19, 19);
+    --color-bg: rgb(22, 22, 22);
     --color-titles: #acacac;
     --color-images: rgb(40, 40, 40);
-    --color-p: #f1f1f1;
+    --color-p: #cfcfcf;
     --font1: "Atkinson Hyperlegible Next", serif;
 }
 
@@ -23,8 +23,11 @@ body{
     align-items: center;
 }
 
-.name-site{
+.name-site a{
     color: var(--color-p);
+    font-family: var(--font1);
+    padding: 8px;
+    text-decoration: none;
 }
 
 #menu-list{
@@ -67,8 +70,29 @@ p{
     line-height: 140%;
 }
 
-article p, #about p{
-    margin: 2% 10% 2% 10%;
+#about p{
+    margin: 1% 10% 2% 10%;
+}
+
+article p{
+    display: inline-block;
+    margin: 0 10% 2% 10%;
+}
+
+article a{
+    display: inline;
+}
+
+.more{
+    font-family: var(--font1);
+    font-size: 18px;
+    font: bold;
+    color: rgb(240, 240, 240);
+    text-decoration: none;
+}
+
+.more:hover{
+    color: var(--color-titles);
 }
 
 #contact{
