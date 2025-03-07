@@ -122,9 +122,9 @@ hr{
 }
 
 #contact div{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: auto auto auto;
 }
 
 #about-me p{
