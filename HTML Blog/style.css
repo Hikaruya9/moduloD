@@ -1,6 +1,18 @@
+/*
+@media (min-width: 768px) and (max-width: 1024px) {
+
+Médios: Telas entre 481px e 767px.
+
+Retrato (Portrait): Telas entre 768px e 1024px.
+
+Telas Pequenas: Telas entre 1281px e 1366px.
+
+Telas Médias: Telas entre 1367px e 1440px.
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
 
-:root{
+:root {
     --color-menu: rgb(214, 209, 209);
     --color-bg: rgb(22, 22, 22);
     --color-titles: #acacac;
@@ -9,13 +21,13 @@
     --font1: "Atkinson Hyperlegible Next", serif;
 }
 
-body{
+body {
     padding: 0;
     margin: 0;
     background-color: var(--color-bg);
 }
 
-#header{
+#header {
     display: flex;
     /* background-color: rgb(50, 50, 50); */
     height: 50px;
@@ -23,23 +35,23 @@ body{
     align-items: center;
 }
 
-.name-site a{
+.name-site a {
     color: var(--color-p);
     font-family: var(--font1);
     padding: 8px;
     text-decoration: none;
 }
 
-#menu-list{
+#menu-list {
     display: flex;
     gap: 20px;
 }
 
-#menu-list li{
+#menu-list li {
     list-style-type: none;
 }
 
-#menu-list li a{
+#menu-list li a {
     font-family: var(--font1);
     color: var(--color-menu);
     font-size: 20px;
@@ -47,22 +59,19 @@ body{
     text-decoration: none;
 }
 
-#menu-list li a:hover{
+#menu-list li a:hover {
     background-color: rgb(116, 111, 111);
 }
 
-.item{
-    display: flex;
-    align-items: end;
-}
-
-h1, h2, h3{
+h1,
+h2,
+h3 {
     color: var(--color-titles);
     font-family: var(--font1);
     text-align: center;
 }
 
-p{
+p {
     color: var(--color-p);
     font-family: var(--font1);
     text-align: left;
@@ -70,20 +79,24 @@ p{
     line-height: 140%;
 }
 
-#about p{
+#about {
+    padding: 1% 0 2% 0;
+}
+
+#about p {
     margin: 1% 10% 2% 10%;
 }
 
-article p{
+article p {
     display: inline-block;
     margin: 0 10% 2% 10%;
 }
 
-article a{
+article a {
     display: inline;
 }
 
-.more{
+.more {
     font-family: var(--font1);
     font-size: 18px;
     font: bold;
@@ -91,49 +104,50 @@ article a{
     text-decoration: none;
 }
 
-.more:hover{
+.more:hover {
     color: var(--color-titles);
 }
 
-#contact{
+#contact {
     background-color: var(--color-images);
     padding: 10px 0 10px 0;
 }
 
-#contact div{
+#contact div {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-#about h3, #contact h3{
+#about h3,
+#contact h3 {
     font-size: 20px;
 }
 
-hr{
+hr {
     margin-left: 8%;
     margin-right: 8%;
 }
 
-.subtitle{
+.subtitle {
     font-size: 30px;
     text-align: center;
 }
 
-.movie-info{
+.movie-info {
     display: flex;
     justify-content: center;
 }
 
-.synopsis{
+.synopsis {
     margin: 1% 30% 2% 2%;
 }
 
-.movie-title{
+.movie-title {
     font-size: 40px;
 }
 
-.movie-image{
+.movie-image {
     display: flex;
     margin-left: 25%;
     width: 250px;
@@ -144,7 +158,41 @@ hr{
     border-color: var(--color-images);
 }
 
-#main{
+#main {
     display: grid;
     row-gap: 30px;
+}
+
+@media (max-width: 767px) {
+    #header {
+        flex-direction: column;
+        height: 150px;
+        text-align: center;
+    }
+
+    #menu-list li a {
+        margin-right: 38px;
+    }
+
+    .movie-info {
+        flex-direction: column;
+    }
+
+    .movie-info p {
+        margin: 6% 10% 10% 10%;
+    }
+
+    .movie-image {
+        margin-left: 22%;
+    }
+
+    #about {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    #contact div {
+        display: flex;
+        flex-direction: column;
+    }
 }
