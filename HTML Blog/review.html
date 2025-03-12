@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Review</title>
+</head>
+
+<body>
+
+    <div class="header-review">
+        <h1 class="name-site"><a href="index.html">Blog Name</a></h1>
+        <h2 class="subtitle">Envie sua review</h2>
+    </div>
+
+    <form action="">
+        <fieldset>
+            <div class="reviewer">
+                <label for="user">Username</label>
+                <input type="text" name="user" id="user" placeholder="Username" required>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="email@example.com" required>
+                <br>
+                <label for="pass">Senha</label>
+                <input type="password" name="pass" id="pass" placeholder="Password" required>
+            </div>
+        </fieldset>
+<!-- < -->
+
+        <div class="radio">
+            <label><strong>Qual modulo você mais gostou do curso de TI do senac</strong></label><br>
+            <label>
+                <input checked type="radio" name="modulo" value="moduloa">Modulo A
+            </label>
+            <label>
+                <input type="radio" name="modulo" value="modulob">Modulo B
+            </label>
+            <label>
+                <input type="radio" name="modulo" value="moduloc">Modulo C
+            </label>
+            <label>
+                <input type="radio" name="modulo" value="modulod">Modulo D
+            </label>
+        </div>
+
+<!-- > -->
+        <div class="select">
+            <label><strong>Qual nota você pensa em dar ao filme?</strong></label><br>
+            <select name="rate" id="rate">
+                <option selected disabled value="">Escolha uma nota</option>
+                <option value="star">0,5</option>
+                <option value="star">1</option>
+                <option value="star">1,5</option>
+                <option value="star">2</option>
+                <option value="star">2,5</option>
+                <option value="star">3</option>
+                <option value="star">3,5</option>
+                <option value="star">4</option>
+                <option value="star">4,5</option>
+                <option value="star">5</option>
+            </select>
+        </div>
+<!-- < -->
+     
+        <br>
+        <fieldset>
+            <div class="check">
+                <label><strong>Qual tecnologia você mais gostou de aprender</strong></label><br><br>
+                <input type="checkbox" name="manutencaoHardware" id="manutencaoHardware" value="manutencaoHardware">
+                <label for="manutencaoHardware">Manutenção de Computadores</label>
+                <input type="checkbox" name="manutencaoSoftware" id="manutencaoSoftware" value="manutencaoSoftware">
+                <label>Manutenção de software de computadores</label><br>
+                <input type="checkbox" name="configRoteador" id="configRoteador" value="configRoteador">
+                <label>Configuração de rotedores</label>
+                <input type="checkbox" name="gerenciamentoServidor" id="gerenciamentoServidor"
+                    value="gerenciamentoServidor">
+                <label>Gerenciamento de servidores</label><br>
+                <input type="checkbox" name="java" id="java" value="java">
+                <label>Desenvolvimento Java</label>
+                <input type="checkbox" name="sql" id="sql" value="sql">
+                <label>Banco de dados Sql</label><br>
+                <input type="checkbox" name="php" id="php" value="php">
+                <label>Desenvolvimento PHP</label>
+                <input type="checkbox" name="frontEnd" id="frontEnd" value="frontEnd">
+                <label>Desenvolvimento FrontEnd (Html, CSS)</label>
+            </div>
+        </fieldset>
+
+<!-- > -->
+        <div class="area">
+            <label for="review">Faça sua review</label><br>
+            <textarea rows="6" name="review" id="review" placeholder="Review..."></textarea>
+        </div>
+        <div class="button">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</body>
+</html>
