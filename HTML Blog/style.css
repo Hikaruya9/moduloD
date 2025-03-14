@@ -129,12 +129,12 @@ hr {
 .movie-info {
     display: flex;
     justify-content: center;
-    margin-left: auto;
+    margin-left: 25%;
     margin-right: auto;
 }
 
 .movie-info a{
-    margin-left: 25%;
+    margin-left: 0;
 }
 
 .synopsis {
@@ -259,6 +259,41 @@ select, text{
     to{border: 4px ridge var(--color-p);}
 }
 
+/* DOM */
+.hiddenImage{
+    opacity: 0;
+}
+
+.visibleImage{
+    animation: fadeInImage 1s linear;
+}
+
+@keyframes fadeInImage{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.hiddenSynopsys{
+    opacity: 0;
+}
+
+.visibleSynopsys{
+    animation: fadeInSynopsys 1s linear;
+}
+
+@keyframes fadeInSynopsis{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 /* redimensioning */
 @media (min-width: 481px) and (max-width: 767px) {
     #header {
@@ -273,9 +308,6 @@ select, text{
 
     .movie-info {
         flex-direction: column;
-    }
-
-    .movie-info a{
         margin-left: 0;
     }
 
@@ -306,9 +338,6 @@ select, text{
 @media (min-width: 768px) and (max-width: 1024px) {
     .movie-info {
         flex-direction: column;
-    }
-
-    .movie-info a{
         margin-left: 0;
     }
 
