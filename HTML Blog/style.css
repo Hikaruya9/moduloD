@@ -260,39 +260,38 @@ select, text{
 }
 
 /* DOM */
-.hiddenImage{
-    opacity: 0;
-}
-
-.visibleImage{
-    animation: fadeInImage 1s linear;
+.image-animate{
+    animation: fadeInImage 1s ease-in forwards;
 }
 
 @keyframes fadeInImage{
     0%{
+        transform: translateX(-20%);
         opacity: 0;
     }
     100%{
+        transform: translateX(0);
         opacity: 1;
     }
 }
 
-.hiddenSynopsys{
-    opacity: 0;
+/* .movie-synopsis{
+    transform: translateX(200%);
+    animation: fadeInSynopsys 1s linear;
 }
 
 .visibleSynopsys{
-    animation: fadeInSynopsys 1s linear;
+    transform: translateX(0);
 }
 
 @keyframes fadeInSynopsis{
     0%{
-        opacity: 0;
+        transform: translateX(200%);
     }
     100%{
-        opacity: 1;
+        transform: translateX(0);
     }
-}
+} */
 
 /* redimensioning */
 @media (min-width: 481px) and (max-width: 767px) {
