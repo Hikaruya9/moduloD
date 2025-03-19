@@ -1,38 +1,68 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>BoxMovies</title>
-  </head>
-  <body class="bg-neutral-950 text-neutral-300">
-    <header class="flex bg-neutral-900 justify-around items-center">
-      <h1 class=""><a class="font-bold p-2 text-3xl" href="index.html">BoxMovies</a></h1>
-        <ul class="h-18 flex items-center content-around gap-8">
-            <li class=""><a class="text-lg font-semibold p-4 hover:bg-zinc-700" href="#main">Reviews</a></li>
-            <li class=""><a class="text-lg font-semibold p-4 hover:bg-zinc-700" href="#about">About</a></li>
-            <li class=""><a class="text-lg font-semibold p-4 hover:bg-zinc-700" href="#footer">Contact</a></li>
-        </ul>
-    </header>
-    <section>
-      <article>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>BoxMovies</title>
+</head>
+
+<body class="bg-zinc-900 text-neutral-300">
+  <header class="pt-5 flex flex-wrap gap-5 bg-neutral-900 justify-around items-center sm:pt-0 flex-nowrap gap-0">
+    <h1 class=""><a class="font-bold p-2 text-3xl" href="index.html">BoxMovies</a></h1>
+    <ul class="h-18 flex items-center content-around gap-8">
+      <li class=""><a class="text-lg font-semibold p-4 hover:bg-zinc-700" href="index.html">Home</a></li>
+      <li class=""><a class="text-lg font-semibold p-4 hover:bg-zinc-700" href="index.html">Reviews</a></li>
+      <li class=""><a class="text-lg font-semibold p-4 hover:bg-zinc-700" href="#footer">Contact</a></li>
+    </ul>
+  </header>
+  <section class="pt-10 pb-80 grid gap-8">
+    <div>
+      <h1 class="text-center font-bold text-4xl">Em destaque:</h1>
+    </div>
+    <div class="flex justify-around flex-wrap gap-8 2xl:gap-0">
+      <article class="w-115 h-60 bg-stone-900 rounded-md flex items-center justify-around shadow-lg sm:w-130 h-80">
+        <img class="w-50 h-60 rounded-md ml-2 sm:w-50 h-75" src="they-live.jpg" alt="They Live">
+        <div class="grid ml-4 mt-1 mr-1 self-start justify-items-center">
+          <strong class="font-bold p-2 text-xl">They Live</strong>
+          <p>A lone drifter stumbles upon a harrowing discovery – a unique
+            pair of sunglasses that reveals that aliens are systematically
+            gaining control of the Earth by masquerading as humans and
+            lulling the public into submission.</p>
+        </div>
       </article>
-      <article>
-        
+      <article class="w-115 h-60 bg-stone-900 rounded-md flex items-center justify-around shadow-lg sm:w-130 h-80">
+        <img class="w-50 h-60 rounded-md ml-2 sm:w-50 h-75" src="challengers.jpg" alt="Challengers">
+        <div class="grid ml-4 mt-1 mr-1 self-start justify-items-center">
+          <strong class="font-bold p-2 text-xl">Challengers</strong>
+          <p>Tennis player turned coach Tashi has taken her husband, Art,
+            and transformed him into a world-famous Major champion. To jolt
+            him out of his recent losing streak, she signs him up for a
+            “Challenger” event where he finds himself standing across the net from
+            his former best friend and Tashi’s former boyfriend.</p>
+        </div>
       </article>
-      <article>
-        
+      <article class="w-115 h-60 bg-stone-900 rounded-md flex items-center justify-around shadow-lg sm:w-130 h-80">
+        <img class="w-50 h-60 rounded-md ml-2 sm:w-50 h-75" src="the-hunt.jpg" alt="The Hunt">
+        <div class="grid ml-4 mt-1 mr-1 self-start justify-items-center">
+          <strong class="font-bold p-2 text-xl">The Hunt</strong>
+          <p>A teacher lives a lonely life, all the while struggling over
+            his son’s custody. His life slowly gets better as he finds love
+            and receives good news from his son, but his new luck is about
+            to be brutally shattered by an innocent little lie.</p>
+        </div>
       </article>
-    </section>
-    <footer class="bg-neutral-800">
-      <h3 class="text-zinc-500 font-bold text-lg text-center pt-5">Contact</h3>
-      <div class="flex h-30 justify-around gap-10 pt-8">
-        <p>inexistente@exemplo.com</p>
-        <p>+99 (99) 99999-9999</p>
-        <p>Rua Pereira da Silva, 9999 - Jabuticaba, RR</p>
-      </div>
-    </footer>
-  </body>
+    </div>
+  </section>
+  <footer class="bg-neutral-800">
+    <h3 class="text-zinc-500 font-bold text-2xl text-center pt-5">Contact</h3>
+    <div class="flex h-35 justify-evenly flex-wrap gap-10 pt-8">
+      <p class="text-lg">inexistente@exemplo.com</p>
+      <p class="text-lg">+99 (99) 99999-9999</p>
+      <p class="text-lg">Rua Pereira da Silva, 9999 - Jabuticaba, RR</p>
+    </div>
+  </footer>
+</body>
+
 </html>
