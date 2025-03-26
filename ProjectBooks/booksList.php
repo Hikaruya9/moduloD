@@ -39,3 +39,5 @@ $books = $query->fetchAll();
         echo "<h2 class='font-bold text-xl'>Não há livros cadastrados no momento!</h2>";
     } ?>
 </table>
+
+<strong><a href="form.php">Enviar novo livro</a></strong>

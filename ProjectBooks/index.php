@@ -1,5 +1,9 @@
 <?php
 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 include('header.php');
 include('footer.php');
 
@@ -11,7 +15,12 @@ include('footer.php');
         <nav>
             <ul class="flex space-x-4">
                 <li><a href="booksList.php" class="hover:text-blue-200">Livros</a></li>
-                <li><a href="form.php" class="hover:text-blue-200">Cadastrar</a></li>
+                <?php if (isset($_SESSION['id'])): ?>
+                    <li><a href="panel.php" class="hover:text-blue-200">Painel</a></li>
+                <?php else: ?>
+                    <li><a href="signIn.php" class="hover:text-blue-200">Sign In</a></li>
+                    <li><a href="signUp.php" class="hover:text-blue-200">Sign Up</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </div>
