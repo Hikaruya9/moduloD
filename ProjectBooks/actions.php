@@ -18,19 +18,45 @@ if (isset($_POST['form'])) {
         exit();
     } else {
 
-        $query = db()->prepare("INSERT INTO books(title, author, desc) VALUES (:title, :author, :desc)");
+        $query = db()->prepare("INSERT INTO books(title, author, desc, contribuitor) VALUES (:title, :author, :desc, :contribuitor)");
 
         $query->execute([
             'title' => $_POST['title'],
             'author' => $_POST['author'],
-            'desc' => $_POST['desc']
+            'desc' => $_POST['desc'],
+            'contribuitor' => $_SESSION['id']
         ]);
 
         header('Location: index.php');
     }
 }
 
-if (isset($_POST['signIn'])) {
+if (isset($_POST['update-book'])) {
+    if (strlen($_POST['title']) == 0) {
+        header('Location: updateBook.php');
+        exit();
+    } elseif (strlen($_POST['author']) == 0) {
+        header('Location: updateBook.php');
+        exit();
+    } elseif (strlen($_POST['desc']) == 0) {
+        header('Location: updateBook.php');
+        exit();
+    } else {
+
+        $query = db()->prepare("UPDATE books SET title = :title, author = :author, desc = :desc WHERE id = :id");
+
+        $query->execute([
+            'title' => $_POST['title'],
+            'author' => $_POST['author'],
+            'desc' => $_POST['desc'],
+            'id' => $_POST['id']
+        ]);
+
+        header('Location: booksList.php');
+    }
+}
+
+if (isset($_POST['sign-in'])) {
     if (strlen($_POST['name']) == 0) {
         // $_SESSION['message'] = "Preencha o nome de usuário";
         header('Location: signIn.php');
@@ -57,7 +83,7 @@ if (isset($_POST['signIn'])) {
     }
 }
 
-if (isset($_POST['signUp'])) {
+if (isset($_POST['sign-up'])) {
     if (strlen($_POST['email']) == 0) {
         header('Location: signUp.php');
         exit();

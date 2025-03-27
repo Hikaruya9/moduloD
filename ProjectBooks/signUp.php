@@ -25,7 +25,7 @@ if (isset($_SESSION['mensagem'])) {
     <input type="email" name="email" required>
     <label for="password">Senha</label>
     <input type="password" name="password" required><br>
-    <button type="submit" name="signUp">Sign Up</button>
+    <button type="submit" name="sign-up">Sign Up</button>
 </form>
 
 <strong><a href="signIn.php">Sign In</a></strong>

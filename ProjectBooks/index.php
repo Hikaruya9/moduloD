@@ -14,8 +14,8 @@ include('footer.php');
         <h1 class="text-2xl font-bold">The Book Database</h1>
         <nav>
             <ul class="flex space-x-4">
-                <li><a href="booksList.php" class="hover:text-blue-200">Livros</a></li>
                 <?php if (isset($_SESSION['id'])): ?>
+                    <li><a href="booksList.php" class="hover:text-blue-200">Livros</a></li>
                     <li><a href="panel.php" class="hover:text-blue-200">Painel</a></li>
                 <?php else: ?>
                     <li><a href="signIn.php" class="hover:text-blue-200">Sign In</a></li>

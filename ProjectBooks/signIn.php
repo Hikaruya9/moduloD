@@ -22,7 +22,7 @@ if(isset($_SESSION['id'])){
     <input type="email" name="email" required><br>
     <label for="password">Senha</label>
     <input type="password" name="password" required><br>
-    <button type="submit" name="signIn">Sign In</button>
+    <button type="submit" name="sign-in">Sign In</button>
 </form>
 
 <strong><a href="signUp.php">Sign Up</a></strong>

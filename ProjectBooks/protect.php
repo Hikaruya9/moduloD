@@ -5,7 +5,7 @@ if(!isset($_SESSION)){
 }
 
 if(!isset($_SESSION['id'])){
-    die("Você não deveria estar aqui! <br> <a href='signUp.php'>Voltar</a>");
+    die("Você não não permissão para acessar esta página! <br> <a href='signUp.php'>Voltar</a>");
 }
 
 ?>
