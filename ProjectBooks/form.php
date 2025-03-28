@@ -6,7 +6,8 @@ include('footer.php');
 
 ?>
 
-<strong><a class="" href="index.php">Home</a></strong>
+<strong><a class="" href="booksList.php">Voltar</a></strong>
+
 
 <form action="actions.php" method="POST">
     <label for="title">Título</label>

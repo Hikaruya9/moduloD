@@ -6,16 +6,13 @@ include('db.php');
 // include('footer.php');
 
 if (!isset($_POST['book-search'])) {
-
     $query = db()->prepare("SELECT books.id, books.title, books.author, books.desc, users.name AS user, books.contribuitor 
                         FROM books 
                         INNER JOIN users ON books.contribuitor=users.id");
     $query->execute();
 
     $books = $query->fetchAll();
-
 } else {
-
     $query = db()->prepare("SELECT books.id, books.title, books.author, books.desc, users.name AS user, books.contribuitor 
                         FROM books 
                         INNER JOIN users ON books.contribuitor=users.id
@@ -61,8 +58,14 @@ if (!isset($_POST['book-search'])) {
                     <td><?= $book['desc']; ?></td>
                     <td><?= $book['user']; ?></td>
                     <?php if ($_SESSION['id'] == $book['contribuitor']): ?>
-                        <td><a class="mr-8" href="updateBook.php">Atualizar</a></td>
-                        <td><a href="deleteBook.php">Deletar</a></td>
+                        <form action="updateBook.php" method="post">
+                            <input type="number" name="book-id" min="1" value="<?= $book['id'] ?>" hidden>
+                            <td><button type="submit" name="update-book-id">Atualizar</button></td>
+                        </form>
+                        <form action="actions.php" method="post">
+                            <input type="number" name="book-id" min="1" value="<?= $book['id'] ?>" hidden>
+                            <td><button type="submit" name="delete-book">Deletar</button></td>
+                        </form>
                     <?php endif; ?>
                 </tr>
             <?php endforeach; ?>

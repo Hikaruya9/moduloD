@@ -11,6 +11,11 @@ if(isset($_SESSION['id'])){
     header('Location: panel.php');
 }
 
+if (isset($_SESSION['mensagem'])) {
+    echo '<h4>' . $_SESSION['mensagem'] . '</h4>';
+    unset($_SESSION['mensagem']);
+}
+
 ?>
 
 <strong><a class="" href="index.php">Home</a></strong>

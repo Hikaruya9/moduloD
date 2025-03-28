@@ -27,33 +27,31 @@ if (isset($_POST['form'])) {
             'contribuitor' => $_SESSION['id']
         ]);
 
-        header('Location: index.php');
+        header('Location: booksList.php');
     }
 }
 
+if (isset($_POST['delete-book'])) {
+    $query = db()->prepare("DELETE FROM books WHERE id = :id");
+
+    $query->execute([
+        'id' => $_POST['book-id']
+    ]);
+
+    header('Location: booksList.php');
+}
+
 if (isset($_POST['update-book'])) {
-    if (strlen($_POST['title']) == 0) {
-        header('Location: updateBook.php');
-        exit();
-    } elseif (strlen($_POST['author']) == 0) {
-        header('Location: updateBook.php');
-        exit();
-    } elseif (strlen($_POST['desc']) == 0) {
-        header('Location: updateBook.php');
-        exit();
-    } else {
+    $query = db()->prepare("UPDATE books SET title = :title, author = :author, desc = :desc WHERE id = :id");
 
-        $query = db()->prepare("UPDATE books SET title = :title, author = :author, desc = :desc WHERE id = :id");
+    $query->execute([
+        'title' => $_POST['new-book-title'],
+        'author' => $_POST['new-book-author'],
+        'desc' => $_POST['new-book-desc'],
+        'id' => $_POST['book-id']
+    ]);
 
-        $query->execute([
-            'title' => $_POST['title'],
-            'author' => $_POST['author'],
-            'desc' => $_POST['desc'],
-            'id' => $_POST['id']
-        ]);
-
-        header('Location: booksList.php');
-    }
+    header('Location: booksList.php');
 }
 
 if (isset($_POST['sign-in'])) {
