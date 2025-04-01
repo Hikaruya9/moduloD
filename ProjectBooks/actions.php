@@ -6,15 +6,15 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-if (isset($_POST['form'])) {
+if (isset($_POST['submit-book'])) {
     if (strlen($_POST['title']) == 0) {
-        header('Location: form.php');
+        header('Location: submitBook.php');
         exit();
     } elseif (strlen($_POST['author']) == 0) {
-        header('Location: form.php');
+        header('Location: submitBook.php');
         exit();
     } elseif (strlen($_POST['desc']) == 0) {
-        header('Location: form.php');
+        header('Location: submitBook.php');
         exit();
     } else {
 
