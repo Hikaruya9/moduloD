@@ -5,14 +5,14 @@ include('db.php');
 include('header.php');
 
 if (!isset($_POST['book-search'])) {
-    $query = db()->prepare("SELECT books.id, books.title, books.author, books.desc, users.name AS user, books.contribuitor 
+    $query = db()->prepare("SELECT books.id, books.title, books.author, books.desc, books.cover, users.name AS user, books.contribuitor 
                         FROM books 
                         INNER JOIN users ON books.contribuitor=users.id");
     $query->execute();
 
     $books = $query->fetchAll();
 } else {
-    $query = db()->prepare("SELECT books.id, books.title, books.author, books.desc, users.name AS user, books.contribuitor 
+    $query = db()->prepare("SELECT books.id, books.title, books.author, books.desc, books.cover, users.name AS user, books.contribuitor 
                         FROM books 
                         INNER JOIN users ON books.contribuitor=users.id
                         WHERE books.title LIKE :search OR books.author LIKE :search");
@@ -25,7 +25,7 @@ if (!isset($_POST['book-search'])) {
 
 ?>
 
-<div class="pt-10 pb-20">
+<div class="pt-10 pb-30">
     <!-- Formulário de Pesquisa -->
     <section class="max-w-7xl mx-auto px-6 py-10">
         <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -47,6 +47,7 @@ if (!isset($_POST['book-search'])) {
                     <thead>
                         <tr class="bg-gray-700">
                             <th class="px-6 py-4 text-sm font-medium text-gray-300">ID</th>
+                            <th class="px-6 py-4 text-sm font-medium text-gray-300">Cover</th>
                             <th class="px-6 py-4 text-sm font-medium text-gray-300">Título</th>
                             <th class="px-6 py-4 text-sm font-medium text-gray-300">Autor</th>
                             <th class="px-6 py-4 text-sm font-medium text-gray-300">Descrição</th>
@@ -58,6 +59,7 @@ if (!isset($_POST['book-search'])) {
                         <?php foreach ($books as $book): ?>
                             <tr class="border-b border-gray-700">
                                 <td class="px-6 py-4"><?= $book['id']; ?></td>
+                                <td class="px-4 py-3"><img src="covers/<?= $book['cover']; ?>" alt="<?= $book['title']; ?>" class="w-24 object-cover"></td>
                                 <td class="px-6 py-4"><?= $book['title']; ?></td>
                                 <td class="px-6 py-4"><?= $book['author']; ?></td>
                                 <td class="px-6 py-4"><?= $book['desc']; ?></td>
@@ -79,10 +81,16 @@ if (!isset($_POST['book-search'])) {
                     </tbody>
                 </table>
             </div>
-        <?php else: ?>
-            <div class="bg-red-100 text-red-600 p-4 rounded-lg">
-                <h2 class="font-bold text-xl">Não há livros cadastrados no momento!</h2>
-            </div>
+            <?php else:
+            if (isset($_POST['book-search'])): ?>
+                <div class="bg-red-100 text-red-600 p-4 rounded-lg">
+                    <h2 class="font-bold text-xl">Não foram encontrados livros com esse título ou autor!</h2>
+                </div>
+            <?php else: ?>
+                <div class="bg-red-100 text-red-600 p-4 rounded-lg">
+                    <h2 class="font-bold text-xl">Não há livros cadastrados no momento!</h2>
+                </div>
+            <?php endif; ?>
         <?php endif; ?>
     </section>
 

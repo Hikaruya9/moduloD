@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'protect.php';
 include('header.php');
@@ -6,26 +6,32 @@ include('header.php');
 ?>
 
 <section class="flex justify-center items-center min-h-screen bg-gray-900">
-    <div class="bg-zinc-800 text-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+    <div class="bg-gray-800 text-white p-8 rounded-lg shadow-lg w-full max-w-lg">
         <h2 class="text-2xl font-bold text-indigo-400 mb-6 text-center">Envio de Livro</h2>
 
-        <form action="actions.php" method="POST" class="space-y-4">
-            <!-- Título -->
+        <form action="actions.php" method="POST" enctype="multipart/form-data" class="space-y-4">
+            <!-- Título do livro -->
             <div>
                 <label for="title" class="block text-sm font-medium text-gray-300">Título</label>
                 <input type="text" name="title" required class="w-full p-3 mt-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
 
-            <!-- Autor -->
+            <!-- Autor do livro -->
             <div>
                 <label for="author" class="block text-sm font-medium text-gray-300">Autor</label>
                 <input type="text" name="author" required class="w-full p-3 mt-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
 
-            <!-- Descrição -->
+            <!-- Descrição do livro -->
             <div>
                 <label for="desc" class="block text-sm font-medium text-gray-300">Descrição</label>
                 <textarea name="desc" required class="w-full p-3 mt-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+            </div>
+
+            <!-- Capa do livro -->
+            <div>
+                <label for="cover" class="block text-sm font-medium text-gray-300">Capa</label>
+                <input type="file" name="cover" class="p-3 mt-2 border border-gray-600 rounded-md bg-gray-700 text-white">
             </div>
 
             <!-- Botão de Envio -->

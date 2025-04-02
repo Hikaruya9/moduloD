@@ -10,16 +10,16 @@ if (isset($_SESSION['id'])) {
     header('Location: panel.php');
 }
 
-// if (isset($_SESSION['mensagem'])) {
-//     echo '<h4>' . $_SESSION['mensagem'] . '</h4>';
-//     unset($_SESSION['mensagem']);
-// }
+if (isset($_SESSION['message'])) {
+    echo '<h4 class="text-3xl font-bold text-indigo-300 text-center">' . $_SESSION['message'] . '</h4>';
+    unset($_SESSION['message']);
+}
 
 ?>
 
 <!-- Formulário de Login ou Cadastro -->
 <section class="flex justify-center items-center min-h-screen bg-gray-900">
-    <div class="bg-zinc-800 text-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+    <div class="bg-gray-800 text-white p-8 rounded-lg shadow-lg w-full max-w-sm">
         <h2 class="text-2xl font-bold text-indigo-400 mb-6 text-center">Login</h2>
 
         <form action="actions.php" method="POST" class="space-y-4">

@@ -5,7 +5,7 @@ include('db.php');
 include('header.php');
 
 if (isset($_POST['update-book-id'])) {
-    $query = db()->prepare("SELECT id,title,author,desc FROM books WHERE id = :id");
+    $query = db()->prepare("SELECT id,title,author,desc,cover FROM books WHERE id = :id");
 
     $query->execute([
         'id' => $_POST['book-id']
@@ -17,7 +17,7 @@ if (isset($_POST['update-book-id'])) {
 ?>
 
 <section class="flex justify-center items-center min-h-screen bg-gray-900">
-    <div class="bg-zinc-800 text-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+    <div class="bg-gray-800 text-white p-8 rounded-lg shadow-lg w-full max-w-lg">
         <h2 class="text-2xl font-bold text-indigo-400 mb-6 text-center">Atualização de livro</h2>
 
         <form action="actions.php" method="POST" class="space-y-4">
@@ -39,6 +39,12 @@ if (isset($_POST['update-book-id'])) {
             <div>
                 <label for="desc" class="block text-sm font-medium text-gray-300">Descrição</label>
                 <textarea name="new-book-desc" required class="w-full p-3 mt-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"><?= $book['desc'] ?></textarea>
+            </div>
+
+            <!-- Capa do livro -->
+            <div>
+                <label for="cover" class="block text-sm font-medium text-gray-300">Capa</label>
+                <input type="file" name="cover" value="<?= $book['cover']; ?>">
             </div>
 
             <!-- Botão de Envio -->
