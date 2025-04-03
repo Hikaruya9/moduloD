@@ -192,6 +192,7 @@ if (isset($_POST['update-user'])) {
         exit();
     } elseif (strlen($_POST['new-user-pass']) == 0) {
         header('Location: updateUser.php');
+        exit();
     } else { 
 
         $pass = password_hash($_POST['new-user-pass'], PASSWORD_DEFAULT);
