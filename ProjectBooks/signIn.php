@@ -17,7 +17,7 @@ if (isset($_SESSION['message'])) {
 
 ?>
 
-<!-- Formulário de Login ou Cadastro -->
+<!-- Cadastro -->
 <section class="flex justify-center items-center min-h-screen bg-gray-900">
     <div class="bg-gray-800 text-white p-8 rounded-lg shadow-lg w-full max-w-sm">
         <h2 class="text-2xl font-bold text-indigo-400 mb-6 text-center">Cadastro</h2>
@@ -45,7 +45,7 @@ if (isset($_SESSION['message'])) {
             <button type="submit" name="sign-in" class="w-full py-3 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition">Criar conta</button>
         </form>
 
-        <!-- Link para cadastro -->
+        <!-- Link para fazer login -->
         <div class="mt-4 text-center">
             <strong><a href="signUp.php" class="text-indigo-400 hover:text-indigo-500 transition">Entrar</a></strong>
         </div>

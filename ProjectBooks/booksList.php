@@ -4,6 +4,7 @@ include('protect.php');
 include('db.php');
 include('header.php');
 
+// Query para buscar os livros no Banco de Dados
 if (!isset($_POST['book-search'])) {
     $query = db()->prepare("SELECT books.id, books.title, books.author, books.desc, books.cover, users.name AS user, books.contribuitor 
                         FROM books 
@@ -26,7 +27,7 @@ if (!isset($_POST['book-search'])) {
 ?>
 
 <div class="pt-10 pb-30">
-    <!-- Formulário de Pesquisa -->
+    <!-- Pesquisa de livro na tabela -->
     <section class="max-w-7xl mx-auto px-6 py-10">
         <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
             <form action="" method="post" class="space-y-4">
@@ -39,7 +40,7 @@ if (!isset($_POST['book-search'])) {
         </div>
     </section>
 
-    <!-- Tabela de Livros -->
+    <!-- Tabela de livros -->
     <section class="max-w-7xl mx-auto px-6 py-10">
         <?php if (count($books) > 0): ?>
             <div class="overflow-x-auto bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -47,7 +48,7 @@ if (!isset($_POST['book-search'])) {
                     <thead>
                         <tr class="bg-gray-700">
                             <th class="px-6 py-4 text-sm font-medium text-gray-300">ID</th>
-                            <th class="px-6 py-4 text-sm font-medium text-gray-300">Cover</th>
+                            <th class="px-6 py-4 text-sm font-medium text-gray-300">Capa</th>
                             <th class="px-6 py-4 text-sm font-medium text-gray-300">Título</th>
                             <th class="px-6 py-4 text-sm font-medium text-gray-300">Autor</th>
                             <th class="px-6 py-4 text-sm font-medium text-gray-300">Descrição</th>

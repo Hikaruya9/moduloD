@@ -13,7 +13,7 @@
         <!-- Título do site -->
         <h1 class="text-2xl font-bold text-indigo-400 hover:text-indigo-500 transition"><a href="index.php">The Book Database</a></h1>
 
-        <!-- Opções de navegação -->
+        <!-- Menu de navegação -->
         <nav>
             <ul class="flex space-x-6">
                 <?php if (isset($_SESSION['id'])): ?>

@@ -17,7 +17,7 @@ if (isset($_SESSION['message'])) {
 
 ?>
 
-<!-- Formulário de Login ou Cadastro -->
+<!-- Login -->
 <section class="flex justify-center items-center min-h-screen bg-gray-900">
     <div class="bg-gray-800 text-white p-8 rounded-lg shadow-lg w-full max-w-sm">
         <h2 class="text-2xl font-bold text-indigo-400 mb-6 text-center">Login</h2>

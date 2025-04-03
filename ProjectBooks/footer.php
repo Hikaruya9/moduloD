@@ -1,3 +1,4 @@
+<!-- Rodapé do site -->
 <footer class="bg-slate-800 text-white py-15">
     <div class="container mx-auto text-center">
       <p>&copy; 2025 Meu banco de dados simplificado de livros. Todos os direitos reservados.</p>

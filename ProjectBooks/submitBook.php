@@ -3,6 +3,11 @@
 include 'protect.php';
 include('header.php');
 
+if (isset($_SESSION['message'])) {
+    echo '<h4 class="text-3xl font-bold text-indigo-300 text-center">' . $_SESSION['message'] . '</h4>';
+    unset($_SESSION['message']);
+}
+
 ?>
 
 <section class="flex justify-center items-center min-h-screen bg-gray-900">
@@ -31,7 +36,10 @@ include('header.php');
             <!-- Capa do livro -->
             <div>
                 <label for="cover" class="block text-sm font-medium text-gray-300">Capa</label>
-                <input type="file" name="cover" class="p-3 mt-2 border border-gray-600 rounded-md bg-gray-700 text-white">
+                <div class="relative">
+                    <input type="file" name="cover" class="absolute inset-0 w-full opacity-0 cursor-pointer"/>
+                    <button type="button" class="w-full p-3 mt-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-indigo-500 hover:bg-gray-600 transition">Escolher Capa</button>
+                </div>
             </div>
 
             <!-- Botão de Envio -->
