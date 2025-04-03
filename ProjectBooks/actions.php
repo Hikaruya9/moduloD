@@ -6,6 +6,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
+// Cadastra um novo livro no Banco de Dados
 if (isset($_POST['submit-book'])) {
     if (strlen($_POST['title']) == 0) {
         header('Location: submitBook.php');
@@ -25,7 +26,9 @@ if (isset($_POST['submit-book'])) {
 
         $extesion = pathinfo($fileName, PATHINFO_EXTENSION);
         if ($extesion != 'png' && $extesion != 'jpg'  && $extesion != 'jpeg') {
-            die('Aceitamos apenas imagens em formato png, jpg ou jpeg!<br><a href="submitBook.php">Voltar</a>');
+            $_SESSION['message'] = "Só aceitamos arquivos png, jpg ou jpeg";
+            header('Location: submitBook.php');
+            exit();
         }
 
         $newFileName = uniqid() . '.' . $extesion;
@@ -45,6 +48,7 @@ if (isset($_POST['submit-book'])) {
     }
 }
 
+// Deleta um livro do Banco de Dados
 if (isset($_POST['delete-book'])) {
     $query = db()->prepare("DELETE FROM books WHERE id = :id");
 
@@ -55,39 +59,44 @@ if (isset($_POST['delete-book'])) {
     header('Location: booksList.php');
 }
 
+// Altera um livro no Banco de Dados
 if (isset($_POST['update-book'])) {
-    if (strlen($_POST['title']) == 0) {
+    if (strlen($_POST['new-book-title']) == 0) {
         header('Location: submitBook.php');
         exit();
-    } elseif (strlen($_POST['author']) == 0) {
+    } elseif (strlen($_POST['new-book-author']) == 0) {
         header('Location: submitBook.php');
         exit();
-    } elseif (strlen($_POST['desc']) == 0) {
+    } elseif (strlen($_POST['new-book-desc']) == 0) {
         header('Location: submitBook.php');
         exit();
-    } elseif (!isset($_FILES['cover'])) {
-        header('Location: submitBook.php');
-        exit();
-    } else {
+    } elseif ($_FILES['new-book-cover']['size'] != 0) {
+        $fileName = $_FILES['new-book-cover']['name'];
+        $tmp_name = $_FILES['new-book-cover']['tmp_name'];
 
-        if(){
-
-        } else {
-
-            $fileName = $_FILES['cover']['name'];
-            $tmp_name = $_FILES['cover']['tmp_name'];
-
-            $extesion = pathinfo($fileName, PATHINFO_EXTENSION);
-            if ($extesion != 'png' && $extesion != 'jpg'  && $extesion != 'jpeg') {
-                die('Aceitamos apenas imagens em formato png, jpg ou jpeg!<br><a href="updateBook.php">Voltar</a>');
-            }
-
-            $newFileName = uniqid() . '.' . $extesion;
-            move_uploaded_file($tmp_name, 'covers/' . $newFileName);
+        $extesion = pathinfo($fileName, PATHINFO_EXTENSION);
+        if ($extesion != 'png' && $extesion != 'jpg'  && $extesion != 'jpeg') {
+            $_SESSION['message'] = "Só aceitamos arquivos png, jpg ou jpeg";
+            header('Location: updateBook.php');
+            exit();
         }
-        
+
+        $newFileName = uniqid() . '.' . $extesion;
+        move_uploaded_file($tmp_name, 'covers/' . $newFileName);
 
         $query = db()->prepare("UPDATE books SET title = :title, author = :author, desc = :desc, cover = :cover WHERE id = :id");
+
+        $query->execute([
+            'title' => $_POST['new-book-title'],
+            'author' => $_POST['new-book-author'],
+            'desc' => $_POST['new-book-desc'],
+            'cover' => $newFileName,
+            'id' => $_POST['book-id']
+        ]);
+
+        header('Location: booksList.php');
+    } else {
+        $query = db()->prepare("UPDATE books SET title = :title, author = :author, desc = :desc WHERE id = :id");
 
         $query->execute([
             'title' => $_POST['new-book-title'],
@@ -100,6 +109,7 @@ if (isset($_POST['update-book'])) {
     }
 }
 
+// Cadastra um novo usuário no Banco de Dados
 if (isset($_POST['sign-in'])) {
     if (strlen($_POST['name']) == 0) {
         $_SESSION['message'] = "Preencha o nome de usuário!";
@@ -129,6 +139,7 @@ if (isset($_POST['sign-in'])) {
     }
 }
 
+// Faz login em um usuário no Banco de Dados
 if (isset($_POST['sign-up'])) {
     if (strlen($_POST['email']) == 0) {
         $_SESSION['message'] = "Insira um email para entrar!";

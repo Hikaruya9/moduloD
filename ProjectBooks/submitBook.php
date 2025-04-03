@@ -3,6 +3,11 @@
 include 'protect.php';
 include('header.php');
 
+if (isset($_SESSION['message'])) {
+    echo '<h4 class="text-3xl font-bold text-indigo-300 text-center">' . $_SESSION['message'] . '</h4>';
+    unset($_SESSION['message']);
+}
+
 ?>
 
 <section class="flex justify-center items-center min-h-screen bg-gray-900">
